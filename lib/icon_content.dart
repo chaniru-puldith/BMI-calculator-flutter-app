@@ -10,7 +10,7 @@ class IconContent extends StatelessWidget {
     required this.cardIcon,
     required this.cardLabel,
     required this.labelColor
-  }); // IconContent({super.key, required this.cardIcon, required this.cardLabel,});
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -19,16 +19,6 @@ class BMICalculator extends StatelessWidget {
           ),
           scaffoldBackgroundColor: Color(0xFF0A0E21),
       ),
-      // theme: ThemeData(
-      //   colorScheme: ColorScheme.fromSwatch().copyWith(
-      //     primary: Color(0xFF0A0E21),
-      //     secondary: Colors.purple,
-      //   ),
-      //   scaffoldBackgroundColor: Color(0xFF0A0E21),
-      //   textTheme: const TextTheme(
-      //     bodyMedium: TextStyle(color: Color(0xFFFFFFFF)),
-      //   ),
-      // ),
       home: InputPage(),
     );
   }
