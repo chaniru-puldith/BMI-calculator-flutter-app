@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class IconContent extends StatelessWidget {
   final IconData cardIcon;
@@ -21,7 +21,7 @@ class IconContent extends StatelessWidget {
           cardIcon,
           size: 80.0,
         ),
-        SizedBox(
+        const SizedBox(
           height: 15.0,
         ),
         Text(
