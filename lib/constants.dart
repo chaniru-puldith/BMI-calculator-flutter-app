@@ -13,6 +13,11 @@ const kResultNormalColor = Color(0xFF24D876);
 
 final roundBorder = BorderRadius.circular(10.0);
 
+enum Gender {
+  male,
+  female,
+}
+
 const kNumberTextStyle = TextStyle(
   fontSize: 50.0,
   fontWeight: FontWeight.w900,
