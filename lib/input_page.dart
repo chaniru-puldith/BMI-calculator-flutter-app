@@ -3,6 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
 import 'constants.dart';
+import 'results_page.dart';
+import 'round_icon_button.dart';
+import 'bottom_button.dart';
 
 enum Gender {
   male,
@@ -19,6 +22,8 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender = Gender.male;
   int height = 180;
+  int weight = 60;
+  int age = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +48,7 @@ class _InputPageState extends State<InputPage> {
                             selectedGender = Gender.male;
                           });
                         },
-                        cardColor: selectedGender == Gender.male ? kBottomContainerColor: kDefaultCardColor,
+                        cardColor: selectedGender == Gender.male ? kPinkColor: kDefaultCardColor,
                         cardChild: IconContent(
                           cardIcon: FontAwesomeIcons.mars,
                           cardLabel: 'MALE',
@@ -58,7 +63,7 @@ class _InputPageState extends State<InputPage> {
                             selectedGender = Gender.female;
                           });
                         },
-                        cardColor: selectedGender == Gender.female ? kBottomContainerColor: kDefaultCardColor,
+                        cardColor: selectedGender == Gender.female ? kPinkColor: kDefaultCardColor,
                         cardChild: IconContent(
                           cardIcon: FontAwesomeIcons.venus,
                           cardLabel: 'FEMALE',
@@ -76,7 +81,7 @@ class _InputPageState extends State<InputPage> {
                   cardChild: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'HEIGHT',
                         style: kLabelTextStyle,
                       ),
@@ -89,7 +94,7 @@ class _InputPageState extends State<InputPage> {
                             height.toString(),
                             style: kNumberTextStyle,
                           ),
-                          Text(
+                          const Text(
                             'cm',
                             style: kLabelTextStyle,
                           ),
@@ -97,16 +102,16 @@ class _InputPageState extends State<InputPage> {
                       ),
                       SliderTheme(
                         data: SliderTheme.of(context).copyWith(
-                          activeTrackColor: kBottomContainerColor,
+                          activeTrackColor: kPinkColor,
                           inactiveTrackColor: kDefaultCardTextColor,
-                          thumbColor: kBottomContainerColor,
+                          thumbColor: kPinkColor,
                           overlayColor: const Color(0x29EB1555),
                           thumbShape: const RoundSliderThumbShape(
                             enabledThumbRadius: 13.0,
                           ),
                           overlayShape: const RoundSliderOverlayShape(
                             overlayRadius: 25.0
-                          )
+                          ),
                         ),
                         child: Slider(
                           value: height.toDouble(),
@@ -133,19 +138,35 @@ class _InputPageState extends State<InputPage> {
                         cardChild: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Icon(
-                              FontAwesomeIcons.mars,
-                              size: 80.0,
-                            ),
-                            SizedBox(
-                              height: 15.0,
+                            const Text(
+                              'WEIGHT',
+                              style: kLabelTextStyle
                             ),
                             Text(
-                              'Male',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: kDefaultCardTextColor,
-                              ),
+                              weight.toString(),
+                              style: kNumberTextStyle,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                RoundedIconButton(
+                                  icon: FontAwesomeIcons.minus,
+                                  onPress: (){
+                                    setState(() {
+                                      weight--;
+                                    });
+                                  },
+                                ),
+                                const SizedBox(width: 15.0,),
+                                RoundedIconButton(
+                                  icon: FontAwesomeIcons.plus,
+                                  onPress: (){
+                                    setState(() {
+                                      weight++;
+                                    });
+                                  },
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -158,19 +179,35 @@ class _InputPageState extends State<InputPage> {
                         cardChild: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Icon(
-                              FontAwesomeIcons.mars,
-                              size: 80.0,
-                            ),
-                            SizedBox(
-                              height: 15.0,
+                            const Text(
+                              'AGE',
+                              style: kLabelTextStyle,
                             ),
                             Text(
-                              'Male',
-                              style: TextStyle(
-                                fontSize: 18.0,
-                                color: kDefaultCardTextColor,
-                              ),
+                              age.toString(),
+                              style: kNumberTextStyle,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                RoundedIconButton(
+                                  icon: FontAwesomeIcons.minus,
+                                  onPress: () {
+                                    setState(() {
+                                      age--;
+                                    });
+                                  },
+                                ),
+                                const SizedBox(width: 15.0,),
+                                RoundedIconButton(
+                                  icon: FontAwesomeIcons.plus,
+                                  onPress: () {
+                                    setState(() {
+                                      age++;
+                                    });
+                                  },
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -179,14 +216,16 @@ class _InputPageState extends State<InputPage> {
                   ],
                 ),
               ),
-              Container(
-                margin: kBottomContainerMargin,
-                width: double.infinity,
-                height: 80.0,
-                decoration: BoxDecoration(
-                  color: kBottomContainerColor,
-                  borderRadius: roundBorder,
-                ),
+              BottomButton(
+                buttonTitle: 'CALCULATE',
+                onPress: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ResultsPage(),
+                    ),
+                  );
+                },
               ),
             ],
           ),

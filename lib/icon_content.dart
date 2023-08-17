@@ -5,7 +5,7 @@ class IconContent extends StatelessWidget {
   final String cardLabel;
   final Color labelColor;
 
-  IconContent({
+  const IconContent({
     super.key,
     required this.cardIcon,
     required this.cardLabel,
