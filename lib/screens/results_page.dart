@@ -1,8 +1,14 @@
 import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/components/bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
+  final String resultText = 'Normal';
+  final String resultDescriptionText = 'Your BMI value is quite low!';
+  final double valueBMI = 18.3;
+  final Color resultTextColor = kResultNormalColor;
+
   const ResultsPage({super.key});
 
   @override
@@ -18,12 +24,10 @@ class ResultsPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
-                child: Container(
-                  child: Text(
-                    'Your Result',
-                    style: kResultTitleTextStyle,
-                  ),
+              const Expanded(
+                child: Text(
+                  'Your Result',
+                  style: kResultTitleTextStyle,
                 ),
               ),
               Expanded(
@@ -35,19 +39,19 @@ class ResultsPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       Text(
-                        'Normal',
+                        resultText,
                         style: TextStyle(
-                          color: kResultNormalColor,
+                          color: resultTextColor,
                           fontSize: 22.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        '18.3',
+                        valueBMI.toString(),
                         style: kBMITextStyle,
                       ),
                       Text(
-                        'Your BMI value is quite low!',
+                        resultDescriptionText,
                         style: kResultDescriptionStyle,
                         textAlign: TextAlign.center,
                       ),
@@ -55,6 +59,12 @@ class ResultsPage extends StatelessWidget {
                   ),
                   onPress: () {},
                 ),
+              ),
+              BottomButton(
+                buttonTitle: 'RE-CALCULATE',
+                onPress: () {
+                  Navigator.pop(context);
+                },
               ),
             ],
           ),

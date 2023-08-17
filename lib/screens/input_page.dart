@@ -222,7 +222,7 @@ class _InputPageState extends State<InputPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ResultsPage(),
+                      builder: (context) => ResultsPage(),
                     ),
                   );
                 },
