@@ -45,13 +45,13 @@ class ResultsPage extends StatelessWidget {
                 child: ReusableCard(
                   cardColor: kDefaultCardColor,
                   cardChild: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         Text(
-                          resultText,
+                          resultText.toUpperCase(),
                           style: TextStyle(
                             color: resultTextColor,
                             fontSize: 22.0,

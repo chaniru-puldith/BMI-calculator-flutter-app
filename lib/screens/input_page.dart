@@ -95,6 +95,9 @@ class _InputPageState extends State<InputPage> {
                             height.toString(),
                             style: kNumberTextStyle,
                           ),
+                          const SizedBox(
+                            width: 3.0,
+                          ),
                           const Text(
                             'cm',
                             style: kLabelTextStyle,
@@ -143,9 +146,23 @@ class _InputPageState extends State<InputPage> {
                               'WEIGHT',
                               style: kLabelTextStyle
                             ),
-                            Text(
-                              weight.toString(),
-                              style: kNumberTextStyle,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.baseline,
+                              textBaseline: TextBaseline.alphabetic,
+                              children: <Widget>[
+                                Text(
+                                  weight.toString(),
+                                  style: kNumberTextStyle,
+                                ),
+                                const SizedBox(
+                                  width: 3.0,
+                                ),
+                                const Text(
+                                  'kg',
+                                  style: kLabelTextStyle,
+                                ),
+                              ],
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -154,7 +171,9 @@ class _InputPageState extends State<InputPage> {
                                   icon: FontAwesomeIcons.minus,
                                   onPress: (){
                                     setState(() {
-                                      weight--;
+                                      if (weight > 1) {
+                                        weight--;
+                                      }
                                     });
                                   },
                                 ),
@@ -195,7 +214,9 @@ class _InputPageState extends State<InputPage> {
                                   icon: FontAwesomeIcons.minus,
                                   onPress: () {
                                     setState(() {
-                                      age--;
+                                      if (age > 1) {
+                                        age--;
+                                      }
                                     });
                                   },
                                 ),
