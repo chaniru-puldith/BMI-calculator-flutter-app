@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 const kPageMargin = EdgeInsets.all(15.0);
+const kResultPageMargin = EdgeInsets.all(12.0);
 const kCardMargin = EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0);
 const kDefaultCardColor = Color(0xFF1D1E33);
 const kBottomContainerMargin =  EdgeInsets.fromLTRB(5, 10, 5, 10);

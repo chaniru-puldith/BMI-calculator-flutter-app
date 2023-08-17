@@ -4,12 +4,18 @@ import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/components/bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
-  final String resultText = 'Normal';
-  final String resultDescriptionText = 'Your BMI value is quite low!';
-  final double valueBMI = 18.3;
-  final Color resultTextColor = kResultNormalColor;
+  final String bmiResult;
+  final String resultText;
+  final String resultDescription;
+  final Color resultTextColor;
 
-  const ResultsPage({super.key});
+  const ResultsPage({
+    super.key,
+    required this.bmiResult,
+    required this.resultText,
+    required this.resultDescription,
+    required this.resultTextColor
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,46 +25,56 @@ class ResultsPage extends StatelessWidget {
           title: const Text('BMI CALCULATOR'),
         ),
         body: Padding(
-          padding: kPageMargin,
+          padding: kResultPageMargin,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              const Expanded(
-                child: Text(
-                  'Your Result',
-                  style: kResultTitleTextStyle,
+               Expanded(
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(15.0, 0, 15.0, 20.0),
+                  alignment: Alignment.bottomLeft,
+                  child: const Text(
+                    'Your Result',
+                    style: kResultTitleTextStyle,
+                  ),
                 ),
               ),
               Expanded(
-                flex: 6,
+                flex: 5,
                 child: ReusableCard(
                   cardColor: kDefaultCardColor,
-                  cardChild: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      Text(
-                        resultText,
-                        style: TextStyle(
-                          color: resultTextColor,
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.bold,
+                  cardChild: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Text(
+                          resultText,
+                          style: TextStyle(
+                            color: resultTextColor,
+                            fontSize: 22.0,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      Text(
-                        valueBMI.toString(),
-                        style: kBMITextStyle,
-                      ),
-                      Text(
-                        resultDescriptionText,
-                        style: kResultDescriptionStyle,
-                        textAlign: TextAlign.center,
-                      ),
-                    ],
+                        Text(
+                          bmiResult,
+                          style: kBMITextStyle,
+                        ),
+                        Text(
+                          resultDescription,
+                          style: kResultDescriptionStyle,
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
                   onPress: () {},
                 ),
+              ),
+              const SizedBox(
+                height: 10.0,
               ),
               BottomButton(
                 buttonTitle: 'RE-CALCULATE',
