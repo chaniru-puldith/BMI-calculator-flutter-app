@@ -13,4 +13,6 @@ Designed and developed a user-friendly BMI Calculator mobile application using F
 <img src="https://github.com/chaniru-puldith/EzyQuizzy-flutter-app/assets/131237062/38b666aa-f63c-4e7b-90f0-c78211a46c6c" width="400px" align="right">&nbsp;&nbsp;<br><br>
 <img src="https://github.com/chaniru-puldith/EzyQuizzy-flutter-app/assets/131237062/d1a668a4-b3bd-4c1c-8679-ad1a8ea68e79" width="400px">
 <img src="https://github.com/chaniru-puldith/EzyQuizzy-flutter-app/assets/131237062/cb5a6a93-67d7-4b56-9117-01c660132a87" width="400px" align="right">&nbsp;&nbsp;<br><br>
-<img src="https://github.com/chaniru-puldith/EzyQuizzy-flutter-app/assets/131237062/4402ce7b-fb94-4d47-acb2-c597232fbfeb" width="400px">&nbsp;&nbsp;<br><br>
+<p align="center">
+  <img src="https://github.com/chaniru-puldith/EzyQuizzy-flutter-app/assets/131237062/4402ce7b-fb94-4d47-acb2-c597232fbfeb" width="400px">
+</p>
